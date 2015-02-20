@@ -1,22 +1,28 @@
-\documentclass{article}
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{fullpage}
 \usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{enumerate}
 \usepackage{hyperref}
-\pagestyle{empty}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{
+  Peter McKay\\
+  \texttt{pem@uoregon.edu}
+  \and
+  Daniel Walinsky\\
+  \texttt{dwalins4@uoregon.edu}
+}
+\title{Project Proposal}
+
 
 \begin{document}
 
-\begin{center}
-Peter McKay, Daniel Walinsky\\
-2015-02-19\\
-\Large Project Proposal
-\end{center}
+\maketitle
 
-\bigskip
 For our final project, we intend to tackle the following Kaggle problem:
 the 
 \href{http://www.kaggle.com/c/forest-cover-type-prediction}{Forest Cover Type Prediction}.
@@ -26,8 +32,10 @@ what kind of tree coverage will be most prevalent in that region.
 
 Examples of data fields we have access to include the soil type 
 (Cryaquolis, Granile, Rock outcrop), the elevation, and average slope.
+Some inputs are boolean while others are linear, hinting that the use
+of an ensemble of machine learning algorithms could be effective.
 
-We are faced, then, with a multi-class classification problem. From such 
+We are faced, then, with a multi-class classification problem. From the input 
 data fields in our testing file, we wish to discover whether a 
 particular cell can be categorized as
 Spruce/Fir,
@@ -37,11 +45,10 @@ Cottonwood/Willow,
 Aspen,
 Douglas-fir, or
 Krummholz.
+The output of any machine-learning algorithm we come up with will therefore be an integer from 0 to 6.
 
-Our project timeline, at a high level is as follows:
+Our project timeline, at a high level, is as follows:
 \begin{enumerate}
-\item Acquire data, ensure integrity thereof, massage into useful data 
-structures.
 \item Explore data, discover correlations, store hypotheses for later 
   use
 \item Test different machine learning algorithms based on the previous 
@@ -55,7 +62,8 @@ structures.
 
 As we proceed through this process, we intend to maintain notes at each 
 stage, in order to parallelize, as much as possible, the experimentation 
-and paper writing processes.
+and paper writing processes. We will likely individually focus on separate approaches
+to the problem, comparing and combining them as a final step.
 
 
 
@@ -93,9 +101,11 @@ while we try to get that wheel to load), we will be making use of
 scikit-learn for implementations of the canonical algorithms as we test 
 their efficacy.
 
-While it may be poetically appropriate to make use of, say, an ensemble 
-of random forests, decision trees, and nearest-neighbor by way of 
-cover-tree, we will be deciding on our choice of algorithm(s) later in 
+As mentioned previously, it will likely be appropriate to make use of an ensemble of different
+machine-learning algorithms, which may include random forests, decision trees,
+and nearest-neighbor by way of cover-tree. Logistic regression may also
+be a good fit for the problem because it inherently works as a classification method.
+We will make a final decision on our choice of algorithm(s) later in 
 the course of our research.  
 
 
