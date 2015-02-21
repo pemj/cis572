@@ -1,4 +1,5 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
+% 
 \usepackage[utf8]{inputenc}
 \usepackage{color}
 \usepackage{graphicx}
@@ -11,7 +12,7 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \author{
   Peter McKay\\
-  \texttt{pem@uoregon.edu}
+  \texttt{pem@cs.uoregon.edu}
   \and
   Daniel Walinsky\\
   \texttt{dwalins4@uoregon.edu}
@@ -26,12 +27,13 @@
 For our final project, we intend to tackle the following Kaggle problem:
 the 
 \href{http://www.kaggle.com/c/forest-cover-type-prediction}{Forest Cover Type Prediction}.
-In brief, we wish to, given a collection of geographic and cartographic 
-variables that apply to a given 30 x 30 meter chunk of forest, determine 
-what kind of tree coverage will be most prevalent in that region.
+problem. In brief, we wish to provide a function that, given a collection 
+of geographic and cartographic variables that apply to a given $30 x 30$ 
+meter chunk of forest, determine what kind of tree coverage will be most 
+prevalent in that region.
 
 Examples of data fields we have access to include the soil type 
-(Cryaquolis, Granile, Rock outcrop), the elevation, and average slope.
+(Cryaquolis, Granile, Rock outcrop, etc.), the elevation, and average slope.
 Some inputs are boolean while others are linear, hinting that the use
 of an ensemble of machine learning algorithms could be effective.
 
@@ -45,7 +47,8 @@ Cottonwood/Willow,
 Aspen,
 Douglas-fir, or
 Krummholz.
-The output of any machine-learning algorithm we come up with will therefore be an integer from 0 to 6.
+The output of any machine-learning algorithm we come up with will 
+therefore take the form of an integer from 1 to 7, inclusive.
 
 Our project timeline, at a high level, is as follows:
 \begin{enumerate}
@@ -62,17 +65,15 @@ Our project timeline, at a high level, is as follows:
 
 As we proceed through this process, we intend to maintain notes at each 
 stage, in order to parallelize, as much as possible, the experimentation 
-and paper writing processes. We will likely individually focus on separate approaches
+and paper writing processes. We intend to focus on separate approaches 
 to the problem, comparing and combining them as a final step.
-
-
 
 Our first step must be to acquire the data and examine it, in order to 
 discover what sort of model would best suit our data.  To that end, we 
 must first settle upon a set of tools to assist us in this matter.  
 We plan to carry out most of our research using Python.  More 
-specifically, Python 3.4.2, with the help of a number of libraries designed 
-to assist in machine learning and data analysis.  
+specifically, Python 3.4.2, with the help of a number of libraries 
+designed to assist in machine learning and data analysis.  
 
 \textbf{pandas: Python Data Analysis Library:}
 We will make use of data structures and input mechanisms introduced in 
@@ -98,15 +99,18 @@ to the proper machine learning part of the assignment.
 \textbf{scikit-learn:}
 In an effort to avoid duplicating the wheel (and running out of RAM 
 while we try to get that wheel to load), we will be making use of 
-scikit-learn for implementations of the canonical algorithms as we test 
-their efficacy.
+scikit-learn for efficient implementations of the canonical algorithms 
+as we test their efficacy.
 
-As mentioned previously, it will likely be appropriate to make use of an ensemble of different
-machine-learning algorithms, which may include random forests, decision trees,
-and nearest-neighbor by way of cover-tree. Logistic regression may also
-be a good fit for the problem because it inherently works as a classification method.
-We will make a final decision on our choice of algorithm(s) later in 
-the course of our research.  
+While it may be poetically appropriate to make use of, say, an ensemble
+of random forests, decision trees, and nearest-neighbor by way of
+cover-tree, making such a decision at this stages in our project seems 
+hasty.
+More important than running through each of the built-in options from 
+scikit-learn, however, is an effective choice of hyper-parameters for 
+such options.  While any discussion of the specifics of these 
+hyper-parameters would be premature, we hope to gather enough data in 
+the earlier stages of our research to inform such decisions.
 
 
 \end{document}
