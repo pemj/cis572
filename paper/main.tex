@@ -1,4 +1,6 @@
-\documentclass[10pt,twocolumn]{IEEEtran11}
+\documentclass[twoside,letterpaper]{soups}
+\pdfpagewidth=8.5truein 
+\pdfpageheight=11truein 
 \usepackage{algpseudocode}
 \usepackage{times}
 \usepackage{cite}
@@ -6,35 +8,28 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{subfigure}
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\pagestyle{plain} % page numbers
+\usepackage{comment}
+\usepackage{url}
+\renewcommand{\topfraction}{0.99} % be more aggressive about text around floats
+\renewcommand{\floatpagefraction}{0.99}
+\pagestyle{plain} % page numbers
 
-\oddsidemargin -15pt
-\evensidemargin -15pt
-\leftmargin 0 pt
-\topmargin -30pt
-\textwidth = 6.9 in
-\textheight = 9.0 in
-\makeatletter
-\newcommand{\removelatexerror}{\let\@latex@error\@gobble}
-\makeatother
-\newcommand{\itembase}{\setlength{\itemsep}{0pt}}
-\newcommand{\eg}{{\it e.g., }}
-\newcommand{\ie}{{\it i.e., }}
 \graphicspath{{figs/}}
 
 \begin{document}
 %\input{psfig.sty}
-\bibliographystyle{IEEE}
+
 
 \title{\Large \bf Title
 %\thanks{
 }
+\numberofauthors{1}
 \author{
-Peter McKay\\
-Computer and Information Science Department\\
-University of Oregon\\
-{\em pem@cs.uoregon.edu}
+Peter McKay and Daniel Walinsky\\
+\affaddr{Department of Computer Science and Information Science, University of Oregon}\\
+\affaddr{Eugene, Oregon}\\
+\email{\{pem,dwalinsky\}@cs.uoregon.edu}
 }
 \maketitle
 % You have to do this to suppress page numbers.  Don't ask.
@@ -57,5 +52,6 @@ Machine Learning, Forestry
 
 
 %\small
+\bibliographystyle{abbrv}
 \bibliography{citations}
 \end{document}
