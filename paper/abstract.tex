@@ -2,18 +2,27 @@
 problem, motivation, solution, takeaway
 
 In this paper, we consider the problem of automatic forest coverage 
-classification.  Given a collection of cartographic variables, we wish 
-to construct a model capable of reliably predicting the predominant 
-type of tree cover 
+classification.  In short, we wish to construct a model capable of 
+reliably predicting the predominant type of tree cover for a small 
+region of forest, given a collection of cartographic variables. We 
+create such a model by leveraging the Random Forest machine learning 
+technique.  We supplement this technique by carrying out a number of 
+feature transformations and re-encodings, taking into account a number 
+of statistical relationships discovered through judicious use of the 
+graphical data analysis.
 
-The motivation for this is going to be tricky.  Why do we care about 
-forest cover type?  why does anybody?  the forest service seems to care, 
-and I suppose bio folks might have a vested interest in the whole 
-procedure.  there are correlations between these elements.  a big part 
-of this will be examining those correlations.
-
-So,the issue is that
-
+After carrying out such modifications to the feature set, a random 
+forest model was found to reach PLACEHOLDER\% accuracy levels, a gain of 
+PLACEHOLDER\ percentage points of the next most effective model tested 
+on our data set.  The structure of a random forest 
+model\cite{breiman2001random} is such that we gain some insight into 
+what data trends are most closely correlated with certain results.  
+From this data, we can draw certain preliminary conclusions regarding 
+the relationships between a number of geological features.  While this 
+information is not in itself interesting from a computational 
+standpoint, it does have a number of exciting applications in a number 
+of interdisciplinary research projects within both the biological and 
+geological sciences.
 \end{abstract}
 %%% Local Variables: 
 %%% mode: latex
