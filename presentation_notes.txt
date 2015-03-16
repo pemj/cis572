@@ -1,0 +1,58 @@
+intro slide:
+Hi, I'm Peter McKay, and this is Danny Walinsky.  Danny has been handling
+the lion's share of code, so I'm going to take some of the didactic
+work off of his hands.  You'll notice we have a pretty sweet nautical
+map setup for our presentation.  This is, however tangentially, actually
+related to the topic of our presentation: cartography, geography, geology,
+ecology, dare I say arbology.
+
+
+slide 2:
+Consider a chunk of forest, 30 meters by 30 meters.  If we know some
+cartographic variables about this region, can we figure out what kind
+of trees we're most likely to encounter in it?
+
+The most obvious solution to this problem is to just track down an
+ecologist, get them to answer our question every time we need to ask it.
+Unfortunately, this scales poorly, so we would prefer a machine
+learning approach to this classification problem.
+
+
+slide 3:
+First thing we do is look at what kind of data we have available to us.
+We can ask ourselves a number of questions: do these data distributions
+have similar shapes, do we have any domain-specific knowledge, does
+anything jump out as useful?  Here we have different types of soil,
+graphed against tree coverage.  Looks like there are some trends in
+these discrete variables, but we don't know anything about soil, so
+let's move on.
+
+slide 4:
+Here we find some of the interesting real valued variables.  Elevation
+looks promising, we see some cool shapes, and we can try to apply out
+domain-specific knowledge again.  For instance!  Unlike our computer, we
+know that vertical and horizontal distance to some feature may be
+related, so we can create some new hybrid classes to represent that
+relationship.  We continue this process, re-examining our graphs at each
+step, until we reach a place where we feel like our features are useful.
+
+Slide 5, 6:
+Now we'll want to divert some of our data to a validation set, while
+retaining a good 90% for training purposes.  Training what, you may
+ask?  Aye, there's the important question.
+
+slide 7:
+We decided to make use of the ensemble method.  We deal with a higher
+time commitment and higher RAM requirements, but we end up with a
+correspondingly impressive increase in accuracy.
+
+We found some luck with random forest methods, but the accuracy was
+consistently lower than our gradient boost machine, despite efforts
+to tune the hyperparameters thereof.  Naive Bayes was, far and away,
+the worst choice we encountered in our quest.  As naive bayes performs
+poorly on data with dependent features, and our cartographic variables
+have a number of complex relationships, this is generally to be
+expected.
+
+In the end, we combine a support vector machine, the k-nearest-neighbor
+method, and a gradient boosting machine.
