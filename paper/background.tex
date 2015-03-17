@@ -99,18 +99,19 @@ to the testing instance.  This distance metric can be a simple
 Euclidean distance calculation, or one of a number of more complex 
 metrics suited for particular problem domains.
 
-Support Vector Machines
+Support Vector Machines\cite{support} share some commonalities with 
+the k-NN algorithm as described above.  We repeat the process of 
+populating an n-dimensional graph with training examples, and from 
+there the algorithms diverge significantly.  
 
 
 Most of the algorithms we made use of for this classification problem 
 were provided by scikit-learn, with a couple of important exceptions.  
 When mixing our classifiers together into a voting body, we rolled our 
-own method of voting.
-
-In addition, the confusion matrix as detailed in figure 
-\ref{fig:confusion} motivated a second layer of classifier, where 
-certain classes of classifications cause our system to double-check its 
-work.  
+own method of voting.  In addition, the confusion matrix as detailed in 
+figure \ref{fig:confusion} motivated a second layer of Random Forest 
+classifier, where certain classes of classifications cause our system to 
+double-check its work.  
 
 
 %%% Local Variables: 

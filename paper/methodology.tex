@@ -1,6 +1,7 @@
 \section{Methodology}
 \label{sec:-method}
 
+
 \subsection{Feature engineering}
 The first step in any machine learning problem is to take a look at the 
 data, and see what we've gotten ourselves into.  If we start by looking 
@@ -33,7 +34,13 @@ discoveries, which we cover more thoroughly in the next subsection. For
 now, we simply observe that some cover types are more distinct from the 
 group than others, when we consider solely the soil types.
 
+
 \subsection{final model}
+\begin{figure}[H]
+  \includegraphics[width=.8\linewidth]{confusion}
+ \caption{Confusion Matrix}
+ \label{fig:confusion}
+\end{figure}
 As we add new features and massage existing features into new shapes, 
 we iteratively apply our classifier scheme to the feature vector to 
 test the efficacy of those features.  This, however, is not an exact 
@@ -56,11 +63,7 @@ predict more 1s and 2s than any other cover type, by nearly an order of
 magnitude.  This suggests that the unexpected gain in accuracy is due 
 to a heavier preponderance of Spruce/Fir and Lodgepole Pine trees in 
 the testing region.
-\begin{figure}
-  \includegraphics[width=.8\linewidth]{confusion}
- \caption{Confusion Matrix}
- \label{fig:confusion}
-\end{figure}
+
 Informed by these features, we then tested a number of classifiers with 
 default settings.  Some of these classifiers performed very poorly, 
 such as the Naive Bayes algorithm.  We selected several of the best 
