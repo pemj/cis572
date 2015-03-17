@@ -1,5 +1,14 @@
 \section{Results}
 \label{sec:-res}
+In order to approximate maximum accuracy values for our models, we 
+carried out a series of tuning operations by way of an iterative binary 
+search.  One hyperparameter at a time, we preceded to run the 
+classifier with converging values until we had reached a sufficiently 
+small difference in accuracy.  We recorded these values and explored 
+the impact that small changes in multiple hyperparameters had on the 
+accuracy of the model.  
+
+
 The first classifier we attempted was Random Forest, primarily out of an 
 appreciation for the pun value of using a forest to classify forests. 
 Initially, our accuracy hovered between 60\% and 70\% on our validation 
@@ -29,26 +38,22 @@ greater than 50\%.  We suspect that this low accuracy is a result of
 the interconnectedness of our feature vector.  As Naive Bayes relies on 
 an assumption of independence between variables within the feature 
 vector, and nature is somewhat infamously non-independent\cite{silent}, 
-we are unsurprised by this result.
+we remain largely unsurprised by this result.
 
-We carried out these tuning operations by way of an iterative binary 
-search.  One hyperparameter at a time, we preceded to run the 
-classifier with converging values until we had reached a sufficiently 
-small difference in accuracy.  We recorded these values and explored 
-the impact that small changes in multiple hyperparameters had on the 
-accuracy of the model.  
+It is perhaps unsurprising that, across all of the similarly accurate 
+models, the same features kept appearing as the highest weights in the 
+weight vectors of our various predictors.  Our neofeatures (difference 
+between elevation and hydrology distances) were right up at the top, 
+near Elevation, Roadway proximity, Hillshade, Fire Point proximity, and 
+both Aspect values.
+
+Combined, the ensemble of these models reached 85\% accuracy on our 
+validation set, but still sat near 75\% on the Kaggle leaderboard.  
+When we add in our second-level Random Forest classifier for cover 
+types 1 and 2, our validation accuracy jumps to 91\%, and our Kaggle 
+score begins hovering around 80\%.
 
 
-
-
-From the first attempt at a Random Tree classifier, up to our final, 
-somewhat convoluted approach to classification, we observed accuracy 
-levels between
-We'll want to talk about final accuracy, about the effects of various changes 
-we made to the model on accuracy, about  
-
-Interestingly, some of the more puzzling and impenetrable features 
-were revealed to be the most important across all of the classifiers.
 
 %%% Local Variables: 
 %%% mode: latex
