@@ -55,7 +55,32 @@ a number of different machine learning models.  We began the project by
 attempting a Random Forest classifier, but eventually expanded to also 
 make use of a Gradient Boost Machine, a Support Vector Machine, and a 
 k-Nearest Neighbor classifier.  Each of these machines has its own 
-strengths and weaknesses, which we will discuss in the following section.
+strengths and weaknesses, which we will discuss as follows.  Each model 
+has a number of hyperparameters that must be tuned properly before 
+evaluating the total efficacy of such a technique: we will cover the 
+tuning process in the following sections.
+
+A Random Forest classifier\cite{breiman2001random} is an example of an 
+ensemble method, a sort of mashup of decision trees with a machine 
+learning technique called bootstrap aggregating, or, more colloquially, 
+bagging\cite{bagging}.  Instead of constructing a single tree on the 
+entirety of the training set, Random Forest constructs many smaller 
+trees on randomly selected subsets of the training data.  This has a 
+number of perks: Random Forests are resistant to artifacts of training 
+set ordering and are highly robust in the face of noise and superfluous 
+features.  Perhaps most importantly, Random Forests, by effectively 
+averaging together a number of decision trees, can effectively mitigate 
+the tendency of decision trees to overfit.
+
+Most of the algorithms we made use of for this classification problem 
+were provided by scikit-learn, with a couple of important exceptions.  
+When mixing our classifiers together into a voting body, we rolled our 
+own method of voting.
+
+In addition, the confusion matrix as detailed in figure 
+\ref{fig:confusion} motivated a second layer of classifier, where 
+certain classes of classifications cause our system to double-check its 
+work.  
 
 
 %%% Local Variables: 
