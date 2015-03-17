@@ -23,11 +23,14 @@ df['EHDtH'] = df.Elevation-df.Horizontal_Distance_To_Hydrology*0.2
 df['Highwater'] = df.Vertical_Distance_To_Hydrology < 0
 df['Aspect2'] = df.Aspect.map(r)
 df.ix[df.Hillshade_3pm==0, 'Hillshade_3pm'] = df.Hillshade_3pm.median()
+one_two = df[(df['Cover_Type']<3)] 
 
 features = [col for col in df.columns if col not in ['Cover_Type','Id','is_train']]
 
 X_train = df[features]
 y_training = df['Cover_Type']
+x_one_two = one_two[features]
+y_one_two = one_two['Cover_Type']
 
 ## Make GBM
 print("Making GBM")
@@ -66,6 +69,9 @@ print("Making SVM")
 
 rbf_svc = SVC(C=1500, kernel="rbf", max_iter=-1) #5.5, 200
 svm_fitted = rbf_svc.fit(scaled_train2, y_training)
+
+## Make random forest for 1 and 2 differentiation
+clf2 = RandomForestClassifier().fit(x_one_two, y_one_two)
 
 ## Get test data
 print("Reading test data")
@@ -106,6 +112,7 @@ with open('output.csv', "w") as outfile:
 		gbm_predict = gbm.predict(X_test)
 		nn_predict = neighbor_fitted.predict(scaled_test)
 		svm_predict = svm_fitted.predict(scaled_test2)
+		ot_predict = clf2.predict(X_test)
 
 		## Combine
 		voted_predict = []
@@ -113,7 +120,10 @@ with open('output.csv', "w") as outfile:
 			a = np.array([gbm_predict[i], svm_predict[i], nn_predict[i]])
 			(values,counts) = np.unique(a,return_counts=True)
 			ind=np.argmax(counts)
-			voted_predict.append(values[ind])
+			ret = values[ind]
+			if ret==1 or ret==2:
+				ret = ot_predict[i]
+			voted_predict.append(ret)
 
 		## Write to output
 		for e, val in enumerate(voted_predict):
