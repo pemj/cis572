@@ -25,7 +25,8 @@ below:
 
 Unlike a binary classifier, it is quite easy to end up with an 
 error rate well over 50\% when dealing with a multiclass 
-classifier.
+classifier.  As we're dealing data collected from a natural source, we 
+expect we will find a high degree of noise within the data set.
 
 
 \begin{figure*}
@@ -70,7 +71,36 @@ number of perks: Random Forests are resistant to artifacts of training
 set ordering and are highly robust in the face of noise and superfluous 
 features.  Perhaps most importantly, Random Forests, by effectively 
 averaging together a number of decision trees, can effectively mitigate 
-the tendency of decision trees to overfit.
+the tendency of decision trees to overfit the training data.  As a 
+small bonus, the structure of the algorithm allows for efficient 
+parallelism, making this a very quick algorithm on a computer with 
+sufficient cores.
+
+When we began exploring the idea of adding further classifiers, we 
+settled on the Grading Boosting Machine\cite{gbm} after some small 
+amount of testing.  Like Random Forest, GBM is an ensemble method that 
+constructs a number of subsidiary decision trees.  In this case, the 
+algorithm combines decision trees with the idea of 
+boosting\cite{boosting}.  Boosting is, in abstract, the process of 
+combining a number of poor predictors into a single good predictor.  
+In the case of a tree-based GBM, our process is superficially similar 
+to bagging, insofar as we create trees based on repeatedly selecting 
+subsets from the total training set.  The difference lies primarily in 
+how we weight such trees.  Instead of relying largely on the sheer mass 
+of trees, we instead attempt to select subtrees that will improve 
+currently weak areas of the aggregate predictor.
+
+k-Nearest Neighbor\cite{nearest} is arguably the simplest algorithm we 
+deploy in the course of this paper.  We consider an n-dimensional 
+graph (for a total of n features) over the feature space.  By populating 
+the graph with our training examples, our predictor takes the form of 
+simply checking the class of the k training examples that are closest 
+to the testing instance.  This distance metric can be a simple 
+Euclidean distance calculation, or one of a number of more complex 
+metrics suited for particular problem domains.
+
+Support Vector Machines
+
 
 Most of the algorithms we made use of for this classification problem 
 were provided by scikit-learn, with a couple of important exceptions.  
