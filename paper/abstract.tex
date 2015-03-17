@@ -2,27 +2,21 @@
 problem, motivation, solution, takeaway
 
 In this paper, we consider the problem of automatic forest coverage 
-classification.  In short, we wish to construct a model capable of 
-reliably predicting the predominant type of tree cover for a small 
-region of forest, given a collection of cartographic variables. We 
-create such a model by leveraging the Random Forest machine learning 
-technique.  We supplement this technique by carrying out a number of 
-feature transformations and re-encodings, taking into account a number 
-of statistical relationships discovered through judicious use of the 
-graphical data analysis.
+classification, as posed by the Kaggle competition: 
+``Forest Cover Type Prediction.''  In short, we wish to construct a 
+model capable of reliably predicting the predominant type of tree 
+cover for a small region of forest, given a collection of cartographic 
+variables. We create such a model by leveraging a voting body of a 
+numnber of different classifiers.  We supplement this technique by 
+carrying out a number of feature transformations and subsequent feature 
+scaling, making use of a number of statistical relationships discovered 
+through judicious use of graphical data analysis.
 
-After carrying out such modifications to the feature set, a random 
-forest model was found to reach PLACEHOLDER\% accuracy levels, a gain of 
-PLACEHOLDER\ percentage points of the next most effective model tested 
-on our data set.  The structure of a random forest 
-model\cite{breiman2001random} is such that we gain some insight into 
-what data trends are most closely correlated with certain results.  
-From this data, we can draw certain preliminary conclusions regarding 
-the relationships between a number of geological features.  While this 
-information is not in itself interesting from a computational 
-standpoint, it does have a number of exciting applications in a number 
-of interdisciplinary research projects within both the biological and 
-geological sciences.
+After carrying out such modifications to the feature set, our ensemble 
+classifer could dependably reach 80\% accuracy.  The structure of our 
+classification setup implies is such that we gain some insight into a 
+the data set, and the problem domain in general.\\
+PLACEHOLDER
 \end{abstract}
 %%% Local Variables: 
 %%% mode: latex
