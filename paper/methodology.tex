@@ -62,17 +62,21 @@ the testing region.
  \label{fig:confusion}
 \end{figure}
 Informed by these features, we then tested a number of classifiers with 
-default settings in order to 
+default settings.  Some of these classifiers performed very poorly, 
+such as the Naive Bayes algorithm.  We selected several of the best 
+performing algorithms, and collected them into a voting body.  
+We generated a Support Vector Machine, a Gradient Boosting Machine, and 
+a Random Forest classifier on the training data.  We use the weights 
+from the Random Forest only to optimize the performance of a k-Nearest 
+Neighbor classifier.  That done, we discard the first Random Forest 
+weight vector, and train a new Random Forest classifier on a subset of 
+training data composed only of cover types 1 and 2.
 
-a Support Vector Machine, and a 
-Gradient Boosting Machine on that data.  We train a Random Forest 
-classifier to settle on a list of feature weights, which we use to 
-optimize the performance of a k-Nearest-Neighbor classifier.  The GBM, 
-SVM, k-NN classifier, thus assembled, use majority voting to determine 
-which classification is selected for a given collection of features.  
-If that vote indicates that we're dealing with cover type 1 or 2, we 
-fall back to a Random Forest trained only on examples with cover types 
-1 and 2.
+The GBM, SVM, k-NN classifier, thus assembled, use majority voting to 
+determine which classification is selected for a given collection of 
+features.  If such a vote results in a classification of cover type 1 
+or 2, we fall back to our more select 1/2 Random Forest classifier.
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "main"
