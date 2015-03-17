@@ -105,11 +105,13 @@ with open('output.csv', "w") as outfile:
 		test.ix[test.Hillshade_3pm==0, 'Hillshade_3pm'] = test.Hillshade_3pm.median()
 		X_test = test[features]
 		scaled_test = pd.DataFrame(scaler.transform(X_test.astype(np.float)), columns=features)
-		#scaled_test2 = scaled_test.copy()
+		'''
+		scaled_test2 = scaled_test.copy()
 		col_index = 0
 		for col in features:
 			scaled_test2[col] = scaled_test2[col]*feature_importances[col_index]
 			col_index += 1
+		'''
 
 		## Make predictions
 		#gbm_predict = gbm.predict(X_test)
