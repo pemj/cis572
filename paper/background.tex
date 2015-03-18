@@ -16,36 +16,36 @@ possible output labels. The output labels are given below:
 \item Krummholz
 \end{enumerate}
 
-Unlike a binary classifier, it is quite easy to end up with an 
-error rate well over 50\% when dealing with a multi-class 
-classifier.  As we're dealing with data collected from a natural source, we 
-expect we will find a high degree of noise within the data set.  We keep 
+Unlike a binary classifier,  a multiclass classifier can quite easily 
+reach error rates in excess of 50\%.  As we are dealing with data 
+collected from a natural source, we 
+expect to encounter a fair amount of noise within the data set.  We keep 
 this in mind when selecting the classifiers enumerated in the following 
-subsection, and when tuning hyper-parameters which govern noise 
+subsection, and when tuning hyperparameters which govern noise 
 tolerance.
 
-The feature vector that is provided for determining the forest
-cover classification is outlined in table \ref{table:featurelist}.
-It contains a mix of continuous and discrete binary
-values.
+The feature vector provided for forest cover type classification is 
+outlined in table \ref{table:featurelist}.  It contains a mix of 
+continuous and discrete binary values.
 
 The continuous features are graphed in figure \ref{fig:continuous_features},
 and include elevation, slope and aspect, as well as distances to important
-geographic points, such as water and roads. Examining these graphs we can
-immediately tell that elevation is the most important for differentiating cover types,
-especially between those that only occur at higher or lower elevations. Other
-continuous features can build on these distinctions, but graphing a single other
-feature against elevation did little to further divide classifications.
+geographic points, such as water and roads. Examining these graphs, we 
+conjecture that elevation may be one of the more important features: it 
+looks like some cover types are almost entirely constrained to a 
+small range of elevation.  While the other continuous features may be 
+helpful later on, their importance is not immediately visible from a 
+simple graph.
 
 The discrete features, as visualized in figures \ref{fig:soil} 
-and \ref{fig:wilderness}, account for multi-class features encoded with 
-the one-hot encoding method. It is clear from these graphs that some cover types
-are more prevalent in certain wilderness areas or certain soil types. However,
-determining the forest cover by wilderness area or soil type alone would be
-impossible, as no wilderness area or soil type is solely inhabited by one
-forest cover. Thus, we need to integrate the information gained from continuous
-features with that gained by from the discrete features to produce a working
-algorithm
+and \ref{fig:wilderness}, account for multiclass features encoded with 
+the one-hot encoding method. It is clear from these graphs that some 
+cover types are more prevalent in certain wilderness areas or certain 
+soil types. However, determining the forest cover by wilderness area 
+or soil type alone proves impossible, as no wilderness area or soil 
+type is the sole domain of any type of forest cover.  Therefore, we must 
+integrate the discrete features into our model alongside the continuous 
+features in order to produce an effective algorithm.
 
 \begin{figure*}
 \centering
@@ -91,7 +91,7 @@ attempting a Random Forest classifier, but eventually expanded to also
 make use of a Gradient Boost Machine, a Support Vector Machine, and a 
 k-Nearest Neighbor classifier.  Each of these machines has its own 
 strengths and weaknesses, which we will discuss as follows.  Each model 
-has a number of hyper-parameters that must be tuned properly before 
+has a number of hyperparameters that must be tuned properly before 
 evaluating the total efficacy of such a technique: we will cover the 
 tuning process in the following sections.
 
@@ -141,12 +141,11 @@ that is to say, computation is generally delayed until it must actually
 compute the classification.  By contrast, an SVM is a non-lazy binary 
 linear classifier.  The SVM attempts to generate a hyperplane that 
 separates the graph into two distinct sets.  By utilizing the approach 
-of one-hot encoding, we can cause SVM to carry out multi-class 
+of one-hot encoding, we can cause SVM to carry out multiclass 
 classification.  Our SVM model can be made resistant to overfitting, 
 and SVMs in general can make use of the kernel trick to classify 
 nonlinear functions.  In this case, we make use of the RBF\cite{rbf} 
 kernel, which tends to be useful in smoothing out noisy data sets. 
-
 
 Most of the algorithms we made use of for this classification problem 
 were provided by scikit-learn, with a couple of important exceptions.  
