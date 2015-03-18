@@ -8,10 +8,24 @@ cartographic variables.  We specify accuracy both for naive solutions
 hyperparameters.  The final collection of k-Nearest Neighbor, Support 
 Vector Machine, Gradient Boosting Machine, and Random Forest result in 
 a significant increase in accuracy over the next best approach, at a 
-final accuracy of 80\%. Combining outputs from different algorithms
-was helpful for our final result, in future projects we would like
-to develop a better randomizer for generating validation data from
-the given training data to minimize overfitting.
+final accuracy of 80\%.
+
+In the course of our experimentation, we discovered a number of 
+interesting relationships between the variables in the feature set.  
+We were able to make use of some of these relationships, by introducing 
+new features while transforming others, but some of the correlations 
+between features remains a mystery. If we had the opportunity to 
+continue work on this project, we would like to undertake a more 
+comprehensive and formal analysis of the data.  
+
+For instance, what 
+kind of relationship exists between the various Hillshade values?  
+How closely correlated are they with Elevation?  We have a great 
+many soil types, but some of them seem to overlap. Do all soil types 
+classified as ``extremely stony'' occur with similar environments, 
+regardless of whether the soil is Bross family or Leighcan-Moran family?  
+We would be interested in answering these questions and more, perhaps 
+in consultation with an actual expert in the domain of geology.
 
 
 

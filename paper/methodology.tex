@@ -35,10 +35,10 @@ now, we simply observe that some cover types are more distinct from the
 group than others, when we consider solely the soil types.
 
 In order to optimize the performance of the SVM and k-NN, we utilize the scikit 
-standard scaler to scale our continuous variables to uniform maximums. This scales
-each feature to have an average value of 0 and a standard deviation of 1. The SVM
-is known to perform better with scaled data and the k-NN also had better accuracy
-on our validation after scaling the input data.
+standard scaler to scale our continuous variables to uniform maximums.  This scales
+each feature to have an average value of 0 and a standard deviation of 1.  SVMs
+is known to perform better with scaled data, and we observed a similar 
+increaes in the validation accuracy of k-NN as well.
 
 \subsection{final model}
 
@@ -60,7 +60,7 @@ exactly what kind of misclassifications lead to a loss of accuracy.
 In our case, as we see in Figure \ref{fig:confusion}, our model does a 
 pretty good job until we start trying to differentiate between the 
 Spruce/Fir type and the Lodgepole Pine type (and, to a lesser extent, 
-between Lodgepol Pine and Douglas-fir).  
+between Lodgepole Pine and Douglas-fir).  
 
 Adding a mechanism to our ensemble to correct for this error results in 
 a modest accuracy increase for our validation set, but a significantly 
