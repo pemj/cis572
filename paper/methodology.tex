@@ -34,15 +34,20 @@ discoveries, which we cover more thoroughly in the next subsection. For
 now, we simply observe that some cover types are more distinct from the 
 group than others, when we consider solely the soil types.
 
-In order to optimize the performance of k-NN, we utilize the scikit 
-standard scaler to scale our continuous variables to uniform maximums.
+In order to optimize the performance of the SVM and k-NN, we utilize the scikit 
+standard scaler to scale our continuous variables to uniform maximums. This scales
+each feature to have an average value of 0 and a standard deviation of 1. The SVM
+is known to perform better with scaled data and the k-NN also had better accuracy
+on our validation after scaling the input data.
 
 \subsection{final model}
+
 \begin{figure}[H]
   \includegraphics[width=.8\linewidth]{confusion}
  \caption{Confusion Matrix}
  \label{fig:confusion}
 \end{figure}
+
 As we add new features and massage existing features into new shapes, 
 we iteratively apply our classifier scheme to the feature vector to 
 test the efficacy of those features.  This, however, is not an exact 
@@ -51,7 +56,7 @@ very well lead to a loss of accuracy over other decisions.  In order to
 more fully examine the consequences of our actions, we make use of a 
 graphical tool called a confusion matrix\cite{stehman1997selecting}. A 
 confusion matrix, or, error matrix, is a tool suited for specifying 
-exactly what kind of missclassifications lead to a loss of accuracy.  
+exactly what kind of misclassifications lead to a loss of accuracy.  
 In our case, as we see in Figure \ref{fig:confusion}, our model does a 
 pretty good job until we start trying to differentiate between the 
 Spruce/Fir type and the Lodgepole Pine type (and, to a lesser extent, 
@@ -60,7 +65,7 @@ between Lodgepol Pine and Douglas-fir).
 Adding a mechanism to our ensemble to correct for this error results in 
 a modest accuracy increase for our validation set, but a significantly 
 greater accuracy gain for the Kaggle competition itself.  If we count 
-up the estimated classificaitons, we observe that our classifiers 
+up the estimated classifications, we observe that our classifiers 
 predict more 1s and 2s than any other cover type, by nearly an order of 
 magnitude.  This suggests that the unexpected gain in accuracy is due 
 to a heavier preponderance of Spruce/Fir and Lodgepole Pine trees in 

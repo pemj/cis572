@@ -7,11 +7,12 @@
 \usepackage{epsfig}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage{subfigure}
+%\usepackage{subfigure}
+\pagestyle{plain} % page numbers
 \usepackage{comment}
 \usepackage{url}
-\usepackage{float}
-\pagestyle{plain} % page numbers
+\usepackage{caption}
+\usepackage{subcaption}
 \renewcommand{\topfraction}{0.99} % be more aggressive about text around floats
 \renewcommand{\floatpagefraction}{0.99}
 \pagestyle{plain} % page numbers
@@ -44,6 +45,8 @@ Peter McKay and Daniel Walinsky\\
 \input{methodology}
 \input{results}
 \input{conclusion}
+
+\section{Acknowledgments}
 
 
 %\small

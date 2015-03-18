@@ -81,7 +81,7 @@ print("Reading test data")
 with open('output.csv', "w") as outfile:
 	outfile.write("Id,Cover_Type\n")
 	row_num = 1
-	count = 5000
+	count = 25000
 	columns = []
 	while(1):
 		## Read segment of data
@@ -130,7 +130,7 @@ with open('output.csv', "w") as outfile:
 			if ret==1 or ret==2:
 				ret = ot_predict[i]
 			'''
-			voted_predict.append(ret)
+			voted_predict.append(svm_predict[i])
 
 		## Write to output
 		for e, val in enumerate(voted_predict):

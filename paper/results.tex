@@ -26,10 +26,14 @@ better results (peak accuracy of 85\% on the validation set).
 
 We found that a k-value of 5 and a Euclidean distance measure
 produced the highest-quality classifier from the k-Nearest Neighbor, 
-model.  With those values, we reached a validation accuracy of about 
+model. Weighting the input features with values produced by a
+Random Forest significantly improved the accuracy on validation data.
+Surprisingly, renormalizing the weighted features slightly gave an even
+higher accuracy over simply applying the weights to each feature.
+Under these settings, we reached a validation accuracy of about 
 82\%.
 
-Using an rbf kernel and a surprisingly high penalty parameter, with 
+Using an RBF kernel and a surprisingly high penalty parameter, with 
 arbitrarily many iterations, our SVM reached approximately 81\% 
 accuracy.
 
